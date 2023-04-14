@@ -18,9 +18,7 @@ export class App extends Component {
   addContact = data => {
     const newContact = { id: nanoid(), ...data };
     this.setState(prevState => {
-      if (
-        this.state.contacts.map(contact => contact.name).includes(data.name)
-      ) {
+      if (this.state.contacts.find(contact => contact.name === data.name)) {
         alert(`${data.name} is already in contacts`);
         return;
       }
@@ -36,8 +34,8 @@ export class App extends Component {
     });
   };
 
-  handleSetFilter = filter => {
-    this.setState({ filter });
+  handleSetFilter = event => {
+    this.setState({ filter: event.target.value });
   };
 
   applyFilters = () => {

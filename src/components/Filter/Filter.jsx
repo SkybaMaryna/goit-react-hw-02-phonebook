@@ -7,10 +7,7 @@ export const Filter = ({ onChangeFilter }) => {
   return (
     <div>
       <StyledFilterName>Find contacts by name</StyledFilterName>
-      <StyledInput
-        type="text"
-        onChange={event => onChangeFilter(event.target.value)}
-      />
+      <StyledInput type="text" onChange={onChangeFilter} />
     </div>
   );
 };
